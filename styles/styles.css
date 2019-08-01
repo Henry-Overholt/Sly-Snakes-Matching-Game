@@ -14,9 +14,9 @@ main {
 
 header {
   display: flex;
-  
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 h1,
@@ -45,7 +45,7 @@ div {
 .game_board {
   display: flex;
   border: black 1px solid;
-  width: 70vw;
+  width: 60vw;
   height: 60vh;
   justify-content: space-around;
   margin-top: 15px;
@@ -53,19 +53,22 @@ div {
   border-radius: 15px;
   flex-wrap: wrap;
   align-items: center;
-
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .card{
     position:relative;
     width: 20%;
     height:20%;
-   background:pink;
+    background:pink;
     margin:5px;
     justify-content: space-around;
     align-content:space-around;
     transform-style:preserve-3d;
     transition: transform 2s;
+    box-sizing: border-box;
     
 
 }
