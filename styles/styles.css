@@ -76,3 +76,8 @@ div {
   height: 100%;
   display: flex;
 }
+
+.back {
+  transform: rotateY(180deg);
+  background: yellow;
+}
