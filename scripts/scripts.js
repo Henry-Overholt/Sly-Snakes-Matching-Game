@@ -23,3 +23,21 @@ function shuffle(array) {
 shuffle(cards);
 console.log(cards);
 // eeeet works!
+
+// game timer -- counting up
+let timer = document.querySelector(".timer");
+let min = 0, sec = 0;
+let interval;
+
+function startTimer() {
+    interval = setInterval(function() {
+        timer.innerHTML =  `${min} mins, ${sec} secs`;
+        sec++;
+        if (sec === 60) {
+            min++;
+        }
+    }, 1000);
+}
+
+// startTimer();
+// now this works toooooo.
