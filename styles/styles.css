@@ -14,6 +14,7 @@ main {
 
 header {
   display: flex;
+  
   flex-direction: column;
   align-items: center;
 }
@@ -21,6 +22,8 @@ header {
 h1,
 div {
   color: white;
+  font-family: 'Lacquer', sans-serif;
+  font-size:20px;
 }
 
 .buttons {
@@ -48,17 +51,44 @@ div {
   margin-top: 15px;
   background-color: rgba(179, 178, 176, 0.3);
   border-radius: 15px;
-}
-ul {
-  display: flex;
-  flex: 1;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  list-style: none;
+  align-items: center;
+
 }
-li {
-  width: 20%;
-  height: 20%;
-  border: 1px solid white;
+
+.card{
+    position:relative;
+    width: 20%;
+    height:20%;
+    border: 2px black;
+    background:pink;
+    margin:5px;
+    justify-content: space-around;
+    align-content:space-around;
+    transform-style:preserve-3d;
+    border-radius: 3px;
+    
+  
+    
+}
+
+.front,
+.back{
+    position:absolute;
+    border:2px;
+    width: 100%;
+    height:100%;
+    display:flex;
+
+
+}
+
+.front{
+
+}
+
+
+.back{
+    transform: rotateY(180deg);
+    background:yellow:
 }
