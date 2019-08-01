@@ -1,50 +1,64 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 main {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(rgba(32, 32, 33,.9), rgba(32, 32, 33,.9)), url('../blacksnake.jpeg'); 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
+    url("../blacksnake.jpeg");
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h1, div {
-    color: white;
+h1,
+div {
+  color: white;
 }
 
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }
 
-#start_btn, #reset_btn {
-    height: 40px;
-    padding: 10px 30px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
+#start_btn,
+#reset_btn {
+  height: 40px;
+  padding: 10px 30px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
 }
-
 
 .game_board {
-    display: flex;
-    border: black 1px solid;
-    width: 70vw;
-    height: 40vh;
-    justify-content: space-around;
-    margin-top: 15px;
-    background-color: rgba(179,178,176, 0.3);
-    border-radius: 15px;
-
+  display: flex;
+  border: black 1px solid;
+  width: 70vw;
+  height: 60vh;
+  justify-content: space-around;
+  margin-top: 15px;
+  background-color: rgba(179, 178, 176, 0.3);
+  border-radius: 15px;
+}
+ul {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  list-style: none;
+}
+li {
+  width: 20%;
+  height: 20%;
+  border: 1px solid white;
 }
