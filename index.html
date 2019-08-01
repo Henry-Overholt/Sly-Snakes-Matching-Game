@@ -1,44 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Sly Snakes Memory Game</title>
   </head>
+    <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet" />
+</head>
 
-  <body>
+<body>
     <main>
-      <header>
-        <h1>Sly Snakes Matching Game</h1>
-        <div class="timer">0 mins, 0 secs</div>
-        <div class="buttons">
-          <button id="start_btn">START</button> 
-          <button id="reset_btn">RESET</button></div>
-      </header>
-      <div class="game_board">
-        <ul class="deck">
-          <li class="card" class="1">1</li>
-          <li class="card" class="2">2</li>
-          <li class="card" class="3">3</li>
-          <li class="card" class="4">4</li>
-          <li class="card" class="5">5</li>
-          <li class="card" class="6">6</li>
-          <li class="card" class="7">7</li>
-          <li class="card" class="8">8</li>
-          <li class="card" class="1">1</li>
-          <li class="card" class="2">2</li>
-          <li class="card" class="3">3</li>
-          <li class="card" class="4">4</li>
-          <li class="card" class="5">5</li>
-          <li class="card" class="6">6</li>
-          <li class="card" class="7">7</li>
-          <li class="card" class="8">8</li>
-        </ul>
-      </div>
+        <header>
+            <h1>Sly Snakes Matching Game</h1>
+            <div class="timer">TIMER</div>
+            <div class="buttons">
+                <button id="start_btn">START</button>
+                <button id="reset_btn">RESET</button>
+            </div>
+        </header>
+        <section class="game_board">
+            <div class="card" onclick="flip(event)">
+                <div class="front"><p> Snake</p></div>
+                <div class="back" alt="red"> <p>RED</p>
+</div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front"><p> Snake</p></div>
+                <div class="back" alt="red"> <p>RED</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front"> <p> Snake</p></div>
+                <div class="back"  alt="orange"> <p>ORANGE</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front"><p> Snake</p></div>
+                <div class="back"  alt="orange"> <p>ORANGE</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" > <p> Snake</p> </div>
+                <div class="back" alt="yellow"> <p>YELLOW</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p></div>
+                <div class="back" alt="yellow"><p>YELLOW</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p></div> 
+                <div class="back" alt="green"><p>GREEN</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p></div>
+                <div class="back" alt="green"><p>GREEN</p></div>
+            </div>
+
+
+            <div class="card" onclick="flip(event)">
+                <div class="front"> <p> Snake</p></div>
+                <div class="back" alt="blue"> <p>BLUE</p> </div>
+            </div>
+
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p></div>
+                <div class="back" alt="blue"> <p>BLUE</p></div>
+            </div>
+
+
+            <div class="card" onclick="flip(event)">
+                <div class="front"><p> Snake</p></div>
+                <div class="back" alt="purple"><p>PURPLE</p></div>
+            </div>
+
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" > <p> Snake</p></div>
+                <div class="back" alt="purple"><p>PURPLE</p></div>
+            </div>
+
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p></div>
+                <div class="back" alt="pink"> <p>PINK</p></div>
+            </div>
+
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p></div>
+                <div class="back" alt="pink"> <p>PINK</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front" ><p> Snake</p> </div>
+                <div class="back"alt="white"><p>WHITE</p></div>
+            </div>
+
+            <div class="card" onclick="flip(event)">
+                <div class="front"><p> Snake</p></div>
+                <div class="back" alt="white"><p>WHITE</p> </div>
+            </div>
+
+       
+
+
+
+            </div>
+        </section>
     </main>
 
     <script src="scripts/scripts.js"></script>
-  </body>
+</body>
+
 </html>
