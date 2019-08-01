@@ -1,7 +1,14 @@
 
 let card = document.querySelectorAll(".card");
 const cards = [...card];
-console.log(cards);
+// console.log(cards);
+
+
+// all cards in the game
+const deck = document.querySelector(".deck")
+
+// array for the opened cards
+let openCards = [];
 
 // to shuffle the cards
 function shuffle(array) {
@@ -23,6 +30,24 @@ function shuffle(array) {
 shuffle(cards);
 console.log(cards);
 // eeeet works!
+
+// need to start the game on window load ***
+
+
+function startGame() {
+/** we need to:
+ * - shuffle the cards (so call shuffle function)
+ * - reset the timer
+ * - reset the cards (any open cards need to be reclosed)
+ */
+
+// reset timer
+
+
+
+}
+
+
 
 // game timer -- counting up
 let timer = document.querySelector(".timer");
