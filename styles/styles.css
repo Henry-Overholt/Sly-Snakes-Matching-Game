@@ -23,7 +23,7 @@ h1,
 div {
   color: white;
   font-family: 'Lacquer', sans-serif;
-  font-size:55px;
+  font-size:20px;
 }
 
 .buttons {
@@ -52,17 +52,24 @@ div {
   background-color: rgba(179, 178, 176, 0.3);
   border-radius: 15px;
   flex-wrap: wrap;
+  align-items: center;
+
 }
 
 .card{
     position:relative;
     width: 20%;
-    height: 20%;
+    height:20%;
     border: 2px black;
     background:pink;
     margin:5px;
     justify-content: space-around;
     align-content:space-around;
+    transform-style:preserve-3d;
+    border-radius: 3px;
+    
+  
+    
 }
 
 .front,
@@ -73,5 +80,15 @@ div {
     height:100%;
     display:flex;
 
+
 }
 
+.front{
+
+}
+
+
+.back{
+    transform: rotateY(180deg);
+    background:yellow:
+}
