@@ -19,6 +19,12 @@ for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", cardOpen);
 }
 
+// starts game when button is clicked
+button.addEventListener("click", startGame);
+
+// disables game board until game begins
+deck.classList.add("disabled");
+
 // to start the game
 function startGame() {
     openedCards = [];
