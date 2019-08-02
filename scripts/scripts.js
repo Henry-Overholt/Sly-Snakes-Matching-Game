@@ -7,6 +7,8 @@ let openedCards = [];
 
 let timer = document.querySelector(".timer");
 
+let matchedCards = []; //empty array for cards that are matched
+
 // selecting all cards in the game
 const deck = document.querySelector(".deck");
 
@@ -94,6 +96,7 @@ function matched() {
     openedCards[1].classList.remove("show", "open");
     disabled();
     setTimeout(function () {
+        matchedCards.push(openedCards[0], openedCards[1]);
         openedCards[0].classList.add("removed");
         openedCards[1].classList.add("removed");
         enable();
@@ -152,7 +155,7 @@ function endGame() {
       document.querySelector(".close").addEventListner;
       document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
       <p>You finished the game in</p
-      ><p> ${min} minutes, ${sec} seconds!</p>`;
+      ><p> ${min} minutes and ${sec} seconds!</p>`;
     }
   }
 

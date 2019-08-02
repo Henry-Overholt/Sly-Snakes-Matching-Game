@@ -190,6 +190,7 @@ button:hover {
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+  color: white;
 }
 
 .results {
@@ -201,7 +202,7 @@ button:hover {
 }
 
 .close {
-  color: #aaa;
+  color: white;
   float: right;
   font-size: 15px;
   margin-right: 10px;
