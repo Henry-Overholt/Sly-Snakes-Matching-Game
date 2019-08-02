@@ -34,13 +34,14 @@ function startGame() {
         shuffledDeck.forEach.call(shuffledCards, function (item) {
             deck.appendChild(item);
         });
-        cards[i].classList.remove("show", "open", "match", "disabled");
+        cards[i].classList.remove("show", "open", "matched", "disabled", "removed");
     }
     deck.classList.remove("disabled");
     // resets timer
     sec = 0;
     min = 0;
     timer.innerHTML = "0 min, 0 sec";
+    clearInterval(interval);
     startTimer();
     button.innerHTML = "RESET";
 }
@@ -120,4 +121,10 @@ function startTimer() {
             sec = 0;
         }
     }, 1000);
+}
+
+function disabled() {
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.add('disabled');
+    })
 }
