@@ -142,8 +142,8 @@ function endGame() {
     deck.classList.add("disabled");
     document.querySelector(".close").addEventListner;
     document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
-    <p>You finished the game in</p
-    ><p> ${min} minutes, ${sec} seconds!</p>`;
+    <p>You finished the game in</p>
+    <p> ${min} minutes, ${sec} seconds!</p>`;
   }
 }
 function handleClose() {
