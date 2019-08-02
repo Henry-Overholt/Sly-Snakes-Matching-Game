@@ -9,6 +9,8 @@ let matchedCards = []; //empty array for cards that are matched
 
 let timer = document.querySelector(".timer");
 
+let matchedCards = []; //empty array for cards that are matched
+
 // selecting all cards in the game
 const deck = document.querySelector(".deck");
 
@@ -67,55 +69,50 @@ function displayCard() {
 }
 
 function cardOpen() {
-  openedCards.push(this);
-  // console.log(openedCards);
-  let length = openedCards.length;
-  if (length === 2) {
-    if (
-      openedCards[0].attributes[1].value === openedCards[1].attributes[1].value
-    ) {
-      matched();
-    } else {
-      unmatched();
+
+    openedCards.push(this);
+    console.log(openedCards);
+    let length = openedCards.length;
+    if (length === 2) {
+        if (openedCards[0].attributes[1].value === openedCards[1].attributes[1].value) {
+            setTimeout(function() {
+                matched();
+            }, 1000);
+        } else {
+            unmatched();
+        }
     }
   }
 }
 
 // when a card is matched
 function matched() {
-  openedCards[0].classList.add("matched", "disabled");
-  openedCards[1].classList.add("matched", "disabled");
-  openedCards[0].classList.remove("show", "open");
-  openedCards[1].classList.remove("show", "open");
-  setTimeout(function() {
-    matchedCards.push(openedCards[0], openedCards[1]);
-    openedCards[0].classList.add("removed");
-    openedCards[1].classList.add("removed");
-    openedCards = [];
-  }, 1500);
-  endGame();
+    openedCards[0].classList.add("matched", "disabled");
+    openedCards[1].classList.add("matched", "disabled");
+    openedCards[0].classList.remove("show", "open");
+    openedCards[1].classList.remove("show", "open");
+    disabled();
+    setTimeout(function () {
+        matchedCards.push(openedCards[0], openedCards[1]);
+        openedCards[0].classList.add("removed");
+        openedCards[1].classList.add("removed");
+        enable();
+        openedCards = [];
+    }, 1500);
+    endGame();
 }
 
 function unmatched() {
-  openedCards[0].classList.add("unmatched", "disabled");
-  openedCards[1].classList.add("unmatched", "disabled");
-  setTimeout(function() {
-    openedCards[0].classList.remove(
-      "show",
-      "open",
-      "no-event",
-      "unmatched",
-      "disabled"
-    );
-    openedCards[1].classList.remove(
-      "show",
-      "open",
-      "no-event",
-      "unmatched",
-      "disabled"
-    );
-    openedCards = [];
-  }, 1500);
+    openedCards[0].classList.add("unmatched", "disabled");
+    openedCards[1].classList.add("unmatched", "disabled");
+    disabled();
+    setTimeout(function () {
+        openedCards[0].classList.remove("show", "open", "no-event", "unmatched", "disabled");
+        openedCards[1].classList.remove("show", "open", "no-event", "unmatched", "disabled");
+        enable();
+        openedCards = [];
+    }, 1500);
+
 }
 
 // game timer -- counting up
@@ -124,28 +121,42 @@ let min = 0,
 let interval;
 
 function startTimer() {
-  interval = setInterval(function() {
-    timer.innerHTML = `${min} mins, ${sec} secs`;
-    sec++;
-    if (sec === 60) {
-      min++;
-      sec = 0;
-    }
-  }, 1000);
+  interval = setInterval(function () {
+        timer.innerHTML = `${min} min, ${sec} sec`;
+        sec++;
+        if (sec === 60) {
+            min++;
+            sec = 0;
+        }
+    }, 1000);
 }
 
+function disabled() {
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.add('disabled');
+    });
+}
+
+function enable() {
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.remove('disabled');
+    });
+};
+ 
+
 function endGame() {
-  if (matchedCards.length === 14) {
-    clearInterval(interval);
-    button.innerHTML = `PLAY AGAIN!`;
-    modal.style.display = "block";
-    deck.classList.add("disabled");
-    document.querySelector(".close").addEventListner;
-    document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
-    <p>You finished the game in</p
-    ><p> ${min} minutes, ${sec} seconds!</p>`;
+    if (matchedCards.length === 14) {
+      clearInterval(interval);
+      button.innerHTML = `PLAY AGAIN!`;
+      modal.style.display = "block";
+      deck.classList.add("disabled");
+      document.querySelector(".close").addEventListner;
+      document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
+      <p>You finished the game in</p
+      ><p> ${min} minutes and ${sec} seconds!</p>`;
+    }
   }
-}
-function handleClose() {
-  modal.style.display = "none";
-}
+
+  function handleClose() {
+    modal.style.display = "none";
+  }
