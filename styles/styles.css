@@ -178,6 +178,22 @@ button:hover {
   pointer-events: none;
 }
 
+@media only screen and (min-width: 580px) {
+
+  .card {
+    height: 5.5rem;
+    width: 5.5rem;  
+  }
+  
+  .front,
+  .back {
+    height: 5.5rem;
+    width: 5.5rem;
+  }
+
+
+}
+
 @media only screen and (min-width: 768px) {
 
   .game_board {
@@ -192,29 +208,9 @@ button:hover {
   
   .front,
   .back {
-    position: absolute;
-    height: 6.5rem;
-    width: 6.5rem;
-    backface-visibility: hidden;
-  }
-}
-
-@media only screen and (min-width: 910px) {
-
-  .card {
-    height: 6.5rem;
-    width: 6.5rem;  
-  }
-  
-  .front,
-  .back {
-    position: absolute;
     height: 6.5rem;
     width: 6.5rem;
   }
-
-  .game_board {
-    /* width: 870px;
-    max-width: none; */
-  }
 }
+
+
