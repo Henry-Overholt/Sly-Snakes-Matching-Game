@@ -5,6 +5,8 @@ const cards = [...card];
 // empty array for two opened cards
 let openedCards = [];
 
+let matchedCards = []; //empty array for cards that are matched
+
 let timer = document.querySelector(".timer");
 
 let matchedCards = []; //empty array for cards that are matched
@@ -16,64 +18,58 @@ let button = document.querySelector("button");
 let modal = document.querySelector(".modal");
 document.querySelector(".close").addEventListener("click", handleClose);
 
-
 // adding click events for the cards
 for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("click", displayCard);
-    cards[i].addEventListener("click", cardOpen);
+  cards[i].addEventListener("click", displayCard);
+  cards[i].addEventListener("click", cardOpen);
 }
-
-// starts game when button is clicked
 button.addEventListener("click", startGame);
-
-// disables game board until game begins
-deck.classList.add("disabled");
-
 // to start the game
 function startGame() {
-    openedCards = [];
-    let shuffledDeck = [];
-    let shuffledCards = shuffle(cards);
-    for (let i = 0; i < shuffledCards.length; i++) {
-        shuffledDeck.forEach.call(shuffledCards, function (item) {
-            deck.appendChild(item);
-        });
-        cards[i].classList.remove("show", "open", "matched", "disabled", "removed");
-    }
-    deck.classList.remove("disabled");
-    // resets timer
-    sec = 0;
-    min = 0;
-    timer.innerHTML = "0 min, 0 sec";
-    clearInterval(interval);
-    startTimer();
-    button.innerHTML = "RESET";
+  openedCards = [];
+  let shuffledDeck = [];
+  let shuffledCards = shuffle(cards);
+  for (let i = 0; i < shuffledCards.length; i++) {
+    shuffledDeck.forEach.call(shuffledCards, function(item) {
+      deck.appendChild(item);
+    });
+    cards[i].classList.remove("show", "open", "match", "disabled");
+  }
+  deck.classList.remove("disabled");
+  // resets timer
+  sec = 0;
+  min = 0;
+  timer.innerHTML = "0 min, 0 sec";
+  clearInterval(interval);
+  startTimer();
+  button.innerHTML = "RESET";
 }
 
 // to shuffle the cards
 function shuffle(array) {
-    let currentIndex = array.length,
-        temporaryValue,
-        randomIndex
+  let currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
 
-        currentIndex--;
-        temporaryValue = array[randomIndex];
-        array[randomIndex] = array[currentIndex];
-        array[currentIndex] = temporaryValue;
-    }
-    return array;
+    currentIndex--;
+    temporaryValue = array[randomIndex];
+    array[randomIndex] = array[currentIndex];
+    array[currentIndex] = temporaryValue;
+  }
+  return array;
 }
 
 function displayCard() {
-    this.classList.toggle("show");
-    this.classList.toggle("open");
-    this.classList.toggle("disabled");
+  this.classList.toggle("show");
+  this.classList.toggle("open");
+  this.classList.toggle("disabled");
 }
 
 function cardOpen() {
+
     openedCards.push(this);
     console.log(openedCards);
     let length = openedCards.length;
@@ -86,6 +82,7 @@ function cardOpen() {
             unmatched();
         }
     }
+  }
 }
 
 // when a card is matched
@@ -115,16 +112,16 @@ function unmatched() {
         enable();
         openedCards = [];
     }, 1500);
-}
 
+}
 
 // game timer -- counting up
 let min = 0,
-    sec = 0;
+  sec = 0;
 let interval;
 
 function startTimer() {
-    interval = setInterval(function () {
+  interval = setInterval(function () {
         timer.innerHTML = `${min} min, ${sec} sec`;
         sec++;
         if (sec === 60) {
@@ -144,7 +141,8 @@ function enable() {
     Array.prototype.filter.call(cards, function(card) {
         card.classList.remove('disabled');
     });
-}
+};
+ 
 
 function endGame() {
     if (matchedCards.length === 14) {
