@@ -9,7 +9,6 @@ let matchedCards = []; //empty array for cards that are matched
 
 let timer = document.querySelector(".timer");
 
-let matchedCards = []; //empty array for cards that are matched
 
 // selecting all cards in the game
 const deck = document.querySelector(".deck");
@@ -23,7 +22,12 @@ for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener("click", displayCard);
   cards[i].addEventListener("click", cardOpen);
 }
+
+deck.classList.add("disabled");
+
 button.addEventListener("click", startGame);
+
+
 // to start the game
 function startGame() {
   openedCards = [];
@@ -33,7 +37,7 @@ function startGame() {
     shuffledDeck.forEach.call(shuffledCards, function(item) {
       deck.appendChild(item);
     });
-    cards[i].classList.remove("show", "open", "match", "disabled");
+    cards[i].classList.remove("show", "open", "matched", "disabled", "removed");
   }
   deck.classList.remove("disabled");
   // resets timer
@@ -83,7 +87,6 @@ function cardOpen() {
         }
     }
   }
-}
 
 // when a card is matched
 function matched() {
