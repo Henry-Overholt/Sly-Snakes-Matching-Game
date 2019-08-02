@@ -1,6 +1,7 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 main {
@@ -14,22 +15,38 @@ main {
 
 header {
   display: flex;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   flex-direction: column;
   align-items: center;
+  /* justify-content: center; */
 }
 
 h1,
 div {
   color: white;
+<<<<<<< HEAD
   font-family: "Lacquer", sans-serif;
+=======
+  font-family: 'Lacquer', sans-serif;
+>>>>>>> master
   font-size: 20px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
+button {
+  height: 40px;
+  padding: 10px 30px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px
+}
+
+button:hover {
+  background: black;
+  color: white;
 }
 
 #start_btn,
@@ -44,6 +61,7 @@ div {
 
 .game_board {
   display: flex;
+<<<<<<< HEAD
   border: black 1px solid;
   width: 85%;
   height: 60%;
@@ -51,12 +69,23 @@ div {
   margin-top: 15px;
   background-color: rgba(179, 178, 176, 0.3);
   border-radius: 15px;
+=======
+>>>>>>> master
   flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+<<<<<<< HEAD
+=======
+  border-radius: 5px;
+  background-color: #716F71;
+  max-width: 80%;
+  padding: 6px;
+>>>>>>> master
 }
 
 .card {
   position: relative;
+<<<<<<< HEAD
   width: 20%;
   height: 20%;
   background: pink;
@@ -65,18 +94,35 @@ div {
   align-content: space-around;
   transform-style: preserve-3d;
   transition: transform 2s;
+=======
+  height: 4.2rem;
+  width: 4.2rem;
+  background: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0.6rem;
+  border-radius: 3px;
+
+>>>>>>> master
 }
 
 .front,
 .back {
   position: absolute;
+<<<<<<< HEAD
   width: 100%;
   height: 100%;
   display: flex;
+=======
+  height: 4.2rem;
+  width: 4.2rem;
+>>>>>>> master
   backface-visibility: hidden;
 }
 
 .front {
+<<<<<<< HEAD
   transform-style: preserve-3d;
   width: 100%;
   border: 1px black solid;
@@ -103,4 +149,91 @@ div {
 }
 .test {
   background: red;
+=======
+  width: 4.2rem;
+  border: 1px black solid;
+  border-radius: 3px;
+}
+
+.back {
+  transform: rotateY(180deg);
+  border-radius: 3px;
+  width: 100%;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.808);
+  cursor: pointer;
+}
+
+.card.show:hover {
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  transition: 0.7s ease;
+  box-shadow: 0px 0px 10px 2px black;
+}
+
+.card.disabled {
+  pointer-events: none;
+}
+
+.open {
+  box-shadow: 0px 0px 15px 2px black;
+}
+
+.red.open,
+.red.matched {
+  background-color: red;
+  color: white;
+}
+
+.orange.open,
+.orange.matched {
+  background-color: orange;
+}
+
+.yellow.open,
+.yellow.matched {
+  background-color: yellow;
+}
+
+.green.open,
+.green.matched {
+  background-color: green;
+}
+
+.blue.open,
+.blue.matched {
+  background-color: blue;
+}
+
+.purple.open,
+.purple.matched {
+  background-color: purple;
+}
+
+.pink.open,
+.pink.matched {
+  background-color: pink;
+}
+
+.hotpink.open,
+.hotpink.matched {
+  background-color: hotpink;
+}
+
+.matched {
+  box-shadow: 0px 0px 10px 2px rgb(148, 125, 67);
+  transform: rotate(1turn);
+  transition: 0.4s linear;
+}
+
+.removed {
+  visibility: hidden;
+}
+
+.deck.disabled {
+  background: rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+>>>>>>> master
 }
