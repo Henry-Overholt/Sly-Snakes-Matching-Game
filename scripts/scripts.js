@@ -88,9 +88,11 @@ function matched() {
     openedCards[1].classList.add("matched", "disabled");
     openedCards[0].classList.remove("show", "open");
     openedCards[1].classList.remove("show", "open");
+    disabled();
     setTimeout(function () {
         openedCards[0].classList.add("removed");
         openedCards[1].classList.add("removed");
+        enable();
         openedCards = [];
     }, 1500);
 
@@ -99,9 +101,11 @@ function matched() {
 function unmatched() {
     openedCards[0].classList.add("unmatched", "disabled");
     openedCards[1].classList.add("unmatched", "disabled");
+    disabled();
     setTimeout(function () {
         openedCards[0].classList.remove("show", "open", "no-event", "unmatched", "disabled");
         openedCards[1].classList.remove("show", "open", "no-event", "unmatched", "disabled");
+        enable();
         openedCards = [];
     }, 1500);
 }
@@ -114,7 +118,7 @@ let interval;
 
 function startTimer() {
     interval = setInterval(function () {
-        timer.innerHTML = `${min} mins, ${sec} secs`;
+        timer.innerHTML = `${min} min, ${sec} sec`;
         sec++;
         if (sec === 60) {
             min++;
@@ -126,5 +130,11 @@ function startTimer() {
 function disabled() {
     Array.prototype.filter.call(cards, function(card) {
         card.classList.add('disabled');
-    })
+    });
+}
+
+function enable() {
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.remove('disabled');
+    });
 }

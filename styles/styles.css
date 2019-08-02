@@ -33,6 +33,7 @@ h1 {
 
 .timer {
   padding: 10px;
+  height: 40px;
 }
 
 button {
@@ -41,7 +42,7 @@ button {
   margin: 5px;
   border: none;
   border-radius: 5px;
-  font-size: 20px
+  font-size: 20px;
 }
 
 button:hover {
@@ -64,7 +65,7 @@ button:hover {
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
-  background-color: #716F71;
+  background-color: rgba(113, 111, 113, 0.425);
   max-width: 80%;
   padding: 0.6rem;
   margin-top: 20px;
@@ -166,7 +167,8 @@ button:hover {
 .matched {
   box-shadow: 0px 0px 25px 4px rgb(212,175,55);
   transform: rotate(1turn);
-  transition: 0.3s linear;
+  transition: 0.6s linear;
+  transition-delay: 0.5s;
 }
 
 .removed {
@@ -174,21 +176,21 @@ button:hover {
 }
 
 .deck.disabled {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(27, 27, 27, 0.938);
   pointer-events: none;
 }
 
-@media only screen and (min-width: 580px) {
+@media only screen and (min-width: 610px) {
 
   .card {
-    height: 5.5rem;
-    width: 5.5rem;  
+    height: 6.1em;
+    width: 6.1rem;  
   }
   
   .front,
   .back {
-    height: 5.5rem;
-    width: 5.5rem;
+    height: 6.1rem;
+    width: 6.1rem;
   }
 
 
