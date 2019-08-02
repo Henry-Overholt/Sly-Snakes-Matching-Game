@@ -1,31 +1,49 @@
-function flip(event){
-	let element = event.currentTarget;
-	if (element.classList.contains("card")) {
-    if(element.style.transform == "rotateY(180deg)") {
-      element.style.transform = "rotateY(0deg)";
-    }
-    else {
-      element.style.transform = "rotateY(180deg)";
-    }
-  }
-};
-
+// this selects all the divs (cards) and places them in an array that will be shuffled each game
 let card = document.querySelectorAll(".card");
 const cards = [...card];
-// console.log(cards);
+
+// empty array for two opened cards
+let openedCards = [];
+
+let timer = document.querySelector(".timer");
+
+// selecting all cards in the game
+const deck = document.querySelector(".deck");
+
+let button = document.querySelector("button");
 
 
-// all cards in the game
-const deck = document.querySelector(".deck")
+// adding click events for the cards
+for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", displayCard);
+    cards[i].addEventListener("click", cardOpen);
+}
 
-// array for the opened cards
-let openCards = [];
+// to start the game
+function startGame() {
+    openedCards = [];
+    let shuffledDeck = [];
+    let shuffledCards = shuffle(cards);
+    for (let i = 0; i < shuffledCards.length; i++) {
+        shuffledDeck.forEach.call(shuffledCards, function (item) {
+            deck.appendChild(item);
+        });
+        cards[i].classList.remove("show", "open", "match", "disabled");
+    }
+    deck.classList.remove("disabled");
+    // resets timer
+    sec = 0;
+    min = 0;
+    timer.innerHTML = "0 min, 0 sec";
+    startTimer();
+    button.innerHTML = "RESET";
+}
 
 // to shuffle the cards
 function shuffle(array) {
     let currentIndex = array.length,
-    temporaryValue,
-    randomIndex
+        temporaryValue,
+        randomIndex
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -38,37 +56,58 @@ function shuffle(array) {
     return array;
 }
 
-shuffle(cards);
-console.log(cards);
-// eeeet works!
+function displayCard() {
+    this.classList.toggle("show");
+    this.classList.toggle("open");
+    this.classList.toggle("disabled");
+}
 
-// need to start the game on window load ***
+function cardOpen() {
+    openedCards.push(this);
+    console.log(openedCards);
+    let length = openedCards.length;
+    if (length === 2) {
+        if (openedCards[0].attributes[1].value === openedCards[1].attributes[1].value) {
+            matched();
+        } else {
+            unmatched();
+        }
+    }
+}
 
-
-function startGame() {
-/** we need to:
- * - shuffle the cards (so call shuffle function)
- *  cards = shuffle(cards)
- * - reset the timer
- * - reset the cards (any open cards need to be reclosed)
- */
-
-// reset timer
-
-
+// when a card is matched
+function matched() {
+    openedCards[0].classList.add("matched", "disabled");
+    openedCards[1].classList.add("matched", "disabled");
+    openedCards[0].classList.remove("show", "open");
+    openedCards[1].classList.remove("show", "open");
+    setTimeout(function () {
+        openedCards[0].classList.add("removed");
+        openedCards[1].classList.add("removed");
+        openedCards = [];
+    }, 1500);
 
 }
 
+function unmatched() {
+    openedCards[0].classList.add("unmatched", "disabled");
+    openedCards[1].classList.add("unmatched", "disabled");
+    setTimeout(function () {
+        openedCards[0].classList.remove("show", "open", "no-event", "unmatched", "disabled");
+        openedCards[1].classList.remove("show", "open", "no-event", "unmatched", "disabled");
+        openedCards = [];
+    }, 1500);
+}
 
 
 // game timer -- counting up
-let timer = document.querySelector(".timer");
-let min = 0, sec = 0;
+let min = 0,
+    sec = 0;
 let interval;
 
 function startTimer() {
-    interval = setInterval(function() {
-        timer.innerHTML =  `${min} mins, ${sec} secs`;
+    interval = setInterval(function () {
+        timer.innerHTML = `${min} mins, ${sec} secs`;
         sec++;
         if (sec === 60) {
             min++;
@@ -76,38 +115,3 @@ function startTimer() {
         }
     }, 1000);
 }
-
-// startTimer();
-// now this works toooooo.
-
-
-
-
-
-// need function for opened cards
-function cardOpen()
-    openCards.push(this);
-    let length = openCards.length;
-    if (length === 2) {
-        if (openCards[0].type === openCards[1].type) {
-            matched();
-        } else {
-            unmatched();
-        }
-    }
-
-// need function for matched cards
-function matched() {
-    openCards[0].classList.add("matched","disabled");
-    openCards[1].classList.add("matched","disabled");
-    openCards[0].classList.remove("show","open");
-    openCards[1].classList.remove("show","open");
-    openCards = [];
-}
-
-// need function for unmatched card
-function unmatched()
-
-// need function to disable clicking on cards
-function disabled()
-    // need to make user unable to click on the card again (whether matched or just clicked on in general)

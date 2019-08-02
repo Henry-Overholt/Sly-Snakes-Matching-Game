@@ -2,120 +2,155 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <title>Sly Snakes Memory Game</title>
-  </head>
-    <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="styles/styles.css" />
+  <title>Sly Snakes Memory Game</title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <main>
-        <header>
-            <h1>Sly Snakes Matching Game</h1>
-            <div class="timer">0 min, 0 sec</div>
-            <div class="buttons">
-                <button id="start_btn">START</button>
-                <button id="reset_btn">RESET</button>
-            </div>
-        </header>
+  <main>
+    <header>
+      <h1>Sly Snakes Matching Game</h1>
+      <div class="timer">0 min, 0 sec</div>
+      <div class="buttons">
+        <button id="start_btn">START</button>
+      </div>
+    </header>
 
-        <section class="game_board deck">
-            <div class="card" onclick="flip(event)">
-                <div class="front"><p> Snake</p></div>
-                <div class="back" alt="red"> <p>RED</p>
-</div>
-            </div>
+    <section class="game_board deck">
+      <div class="card red" type="red">
+        <div class="front">
 
-            <div class="card" onclick="flip(event)">
-                <div class="front"><p> Snake</p></div>
-                <div class="back" alt="red"> <p>RED</p></div>
-            </div>
+        </div>
+        <div class="back" alt="red">
+            <i class="fa fa-asterisk"></i>
+        </div>
+      </div>
 
-            <div class="card" onclick="flip(event)">
-                <div class="front"> <p> Snake</p></div>
-                <div class="back"  alt="orange"> <p>ORANGE</p></div>
-            </div>
+      <div class="card  red" type="red">
+        <div class="front">
 
-            <div class="card" onclick="flip(event)">
-                <div class="front"><p> Snake</p></div>
-                <div class="back"  alt="orange"> <p>ORANGE</p></div>
-            </div>
+        </div>
+        <div class="back" alt="red">
+        </div>
+      </div>
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" > <p> Snake</p> </div>
-                <div class="back" alt="yellow"> <p>YELLOW</p></div>
-            </div>
+      <div class="card orange" type="orange">
+        <div class="front">
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p></div>
-                <div class="back" alt="yellow"><p>YELLOW</p></div>
-            </div>
+        </div>
+        <div class="back" alt="orange">
+        </div>
+      </div>
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p></div> 
-                <div class="back" alt="green"><p>GREEN</p></div>
-            </div>
+      <div class="card orange" type="orange">
+        <div class="front">
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p></div>
-                <div class="back" alt="green"><p>GREEN</p></div>
-            </div>
+        </div>
+        <div class="back" alt="orange">
+        </div>
+      </div>
 
+      <div class="card yellow" type="yellow">
+        <div class="front">
+        </div>
+        <div class="back" alt="yellow">
+        </div>
+      </div>
 
-            <div class="card" onclick="flip(event)">
-                <div class="front"> <p> Snake</p></div>
-                <div class="back" alt="blue"> <p>BLUE</p> </div>
-            </div>
+      <div class="card yellow" type="yellow">
+        <div class="front">
 
+        </div>
+        <div class="back" alt="yellow">
+        </div>
+      </div>
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p></div>
-                <div class="back" alt="blue"> <p>BLUE</p></div>
-            </div>
+      <div class="card green" type="green">
+        <div class="front">
+        </div>
+        <div class="back" alt="green">
+        </div>
+      </div>
 
-
-            <div class="card" onclick="flip(event)">
-                <div class="front"><p> Snake</p></div>
-                <div class="back" alt="purple"><p>PURPLE</p></div>
-            </div>
-
-
-            <div class="card" onclick="flip(event)">
-                <div class="front" > <p> Snake</p></div>
-                <div class="back" alt="purple"><p>PURPLE</p></div>
-            </div>
+      <div class="card green" type="green">
+        <div class="front">
+        </div>
+        <div class="back" alt="green">
+        </div>
+      </div>
 
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p></div>
-                <div class="back" alt="pink"> <p>PINK</p></div>
-            </div>
+      <div class="card blue" type="blue">
+        <div class="front">
+        </div>
+        <div class="back" alt="blue">
+        </div>
+      </div>
 
 
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p></div>
-                <div class="back" alt="pink"> <p>PINK</p></div>
-            </div>
-
-            <div class="card" onclick="flip(event)">
-                <div class="front" ><p> Snake</p> </div>
-                <div class="back"alt="white"><p>WHITE</p></div>
-            </div>
-
-            <div class="card" onclick="flip(event)">
-                <div class="front"><p> Snake</p></div>
-                <div class="back" alt="white"><p>WHITE</p> </div>
-            </div>
+      <div class="card blue" type="blue">
+        <div class="front">
+        </div>
+        <div class="back" alt="blue">
+        </div>
+      </div>
 
 
-            </div>
-        </section>
-    </main>
+      <div class="card purple" type="purple">
+        <div class="front">
+        </div>
+        <div class="back" alt="purple">
+        </div>
+      </div>
 
-    <script src="scripts/scripts.js"></script>
+
+      <div class="card purple" type="purple">
+        <div class="front">
+        </div>
+        <div class="back" alt="purple">
+        </div>
+      </div>
+
+
+      <div class="card pink" type="pink">
+        <div class="front">
+        </div>
+        <div class="back" alt="pink">
+        </div>
+      </div>
+
+
+      <div class="card pink" type="pink">
+        <div class="front">
+        </div>
+        <div class="back" alt="pink">
+        </div>
+      </div>
+
+      <div class="card hotpink" type="hotpink">
+        <div class="front">
+        </div>
+        <div class="back" alt="hotpink">
+        </div>
+      </div>
+
+      <div class="card hotpink" type="hotpink">
+        <div class="front">
+        </div>
+        <div class="back" alt="hotpink">
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="scripts/scripts.js"></script>
 </body>
 
 </html>
