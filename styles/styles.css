@@ -6,7 +6,7 @@
 
 body {
   background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
-  url("../blacksnake.jpeg");
+    url("../blacksnake.jpeg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -165,7 +165,7 @@ button:hover {
 }
 
 .matched {
-  box-shadow: 0px 0px 25px 20px rgb(212,175,55);
+  box-shadow: 0px 0px 25px 20px rgb(212, 175, 55);
   transform: rotate(1turn);
   transition: 0.6s ease-in;
 }
@@ -179,20 +179,55 @@ button:hover {
   pointer-events: none;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 25%;
+  width: 75%;
+  height: 25%;
+  transform: translate(-50% -50%);
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.results {
+  text-align: center;
+  margin: 5% auto;
+  font-size: 30px;
+  width: 75%;
+  height: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 610px) {
 
   .card {
     height: 6.1em;
-    width: 6.1rem;  
+    width: 6.1rem;
   }
-  
+
   .front,
   .back {
     height: 6.1rem;
     width: 6.1rem;
   }
-
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -204,14 +239,12 @@ button:hover {
 
   .card {
     height: 6.5rem;
-    width: 6.5rem;  
+    width: 6.5rem;
   }
-  
+
   .front,
   .back {
     height: 6.5rem;
     width: 6.5rem;
   }
 }
-
-

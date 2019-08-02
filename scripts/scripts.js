@@ -11,6 +11,8 @@ let timer = document.querySelector(".timer");
 const deck = document.querySelector(".deck");
 
 let button = document.querySelector("button");
+let modal = document.querySelector(".modal");
+document.querySelector(".close").addEventListener("click", handleClose);
 
 
 // adding click events for the cards
@@ -97,7 +99,7 @@ function matched() {
         enable();
         openedCards = [];
     }, 1500);
-
+    endGame();
 }
 
 function unmatched() {
@@ -140,3 +142,20 @@ function enable() {
         card.classList.remove('disabled');
     });
 }
+
+function endGame() {
+    if (matchedCards.length === 14) {
+      clearInterval(interval);
+      button.innerHTML = `PLAY AGAIN!`;
+      modal.style.display = "block";
+      deck.classList.add("disabled");
+      document.querySelector(".close").addEventListner;
+      document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
+      <p>You finished the game in</p
+      ><p> ${min} minutes, ${sec} seconds!</p>`;
+    }
+  }
+
+  function handleClose() {
+    modal.style.display = "none";
+  }
