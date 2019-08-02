@@ -4,27 +4,36 @@
   box-sizing: border-box;
 }
 
+body {
+  background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
+  url("../blacksnake.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 main {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
-    url("../blacksnake.jpeg");
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
 
-h1,
-div {
-  color: white;
+h1 {
+  margin-top: 20px
   font-family: "Lacquer", sans-serif;
-  font-size: 20px;
+}
+
+.timer {
+  padding: 10px;
 }
 
 button {
@@ -41,8 +50,7 @@ button:hover {
   color: white;
 }
 
-#start_btn,
-#reset_btn {
+#start_btn {
   height: 40px;
   padding: 10px 30px;
   margin: 5px;
@@ -59,13 +67,14 @@ button:hover {
   border-radius: 5px;
   background-color: #716f71;
   max-width: 80%;
-  padding: 6px;
+  padding: 0.6rem;
+  margin-top: 20px;
 }
 
 .card {
   position: relative;
-  height: 4.2rem;
-  width: 4.2rem;
+  height: 4.5rem;
+  width: 4.5rem;
   background: black;
   display: flex;
   flex-wrap: wrap;
@@ -77,14 +86,13 @@ button:hover {
 .front,
 .back {
   position: absolute;
-  height: 4.2rem;
-  width: 4.2rem;
+  height: 4.5rem;
+  width: 4.5rem;
   backface-visibility: hidden;
 }
 
 .front {
-  width: 4.2rem;
-  border: 1px black solid;
+  /* border: 1px black solid; */
   border-radius: 3px;
 }
 
@@ -156,9 +164,9 @@ button:hover {
 }
 
 .matched {
-  box-shadow: 0px 0px 10px 2px rgb(148, 125, 67);
+  box-shadow: 0px 0px 25px 4px rgb(212,175,55);
   transform: rotate(1turn);
-  transition: 0.4s linear;
+  transition: 0.3s linear;
 }
 
 .removed {
@@ -169,3 +177,40 @@ button:hover {
   background: rgba(0, 0, 0, 0.9);
   pointer-events: none;
 }
+
+@media only screen and (min-width: 580px) {
+
+  .card {
+    height: 5.5rem;
+    width: 5.5rem;  
+  }
+  
+  .front,
+  .back {
+    height: 5.5rem;
+    width: 5.5rem;
+  }
+
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  .game_board {
+    width: 610px;
+    max-width: none;
+  }
+
+  .card {
+    height: 6.5rem;
+    width: 6.5rem;  
+  }
+  
+  .front,
+  .back {
+    height: 6.5rem;
+    width: 6.5rem;
+  }
+}
+
+

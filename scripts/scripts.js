@@ -19,26 +19,32 @@ for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener("click", displayCard);
   cards[i].addEventListener("click", cardOpen);
 }
+
+// starts game when button is clicked
 button.addEventListener("click", startGame);
+
+// disables game board until game begins
+deck.classList.add("disabled");
+
 // to start the game
 function startGame() {
-  openedCards = [];
-  let shuffledDeck = [];
-  let shuffledCards = shuffle(cards);
-  for (let i = 0; i < shuffledCards.length; i++) {
-    shuffledDeck.forEach.call(shuffledCards, function(item) {
-      deck.appendChild(item);
-    });
-    cards[i].classList.remove("show", "open", "match", "disabled");
-  }
-  deck.classList.remove("disabled");
-  // resets timer
-  sec = 0;
-  min = 0;
-  timer.innerHTML = "0 min, 0 sec";
-  clearInterval(interval);
-  startTimer();
-  button.innerHTML = "RESET";
+    openedCards = [];
+    let shuffledDeck = [];
+    let shuffledCards = shuffle(cards);
+    for (let i = 0; i < shuffledCards.length; i++) {
+        shuffledDeck.forEach.call(shuffledCards, function (item) {
+            deck.appendChild(item);
+        });
+        cards[i].classList.remove("show", "open", "matched", "disabled", "removed");
+    }
+    deck.classList.remove("disabled");
+    // resets timer
+    sec = 0;
+    min = 0;
+    timer.innerHTML = "0 min, 0 sec";
+    clearInterval(interval);
+    startTimer();
+    button.innerHTML = "RESET";
 }
 
 // to shuffle the cards
@@ -137,4 +143,10 @@ function endGame() {
     clearInterval(interval);
     button.innerHTML = `PLAY AGAIN!`;
   }
+}
+
+function disabled() {
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.add('disabled');
+    })
 }
