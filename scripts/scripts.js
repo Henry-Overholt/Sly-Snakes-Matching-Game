@@ -13,38 +13,34 @@ let timer = document.querySelector(".timer");
 const deck = document.querySelector(".deck");
 
 let button = document.querySelector("button");
+let modal = document.querySelector(".modal");
+document.querySelector(".close").addEventListener("click", handleClose);
 
 // adding click events for the cards
 for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener("click", displayCard);
   cards[i].addEventListener("click", cardOpen);
 }
-
-// starts game when button is clicked
 button.addEventListener("click", startGame);
-
-// disables game board until game begins
-deck.classList.add("disabled");
-
 // to start the game
 function startGame() {
-    openedCards = [];
-    let shuffledDeck = [];
-    let shuffledCards = shuffle(cards);
-    for (let i = 0; i < shuffledCards.length; i++) {
-        shuffledDeck.forEach.call(shuffledCards, function (item) {
-            deck.appendChild(item);
-        });
-        cards[i].classList.remove("show", "open", "matched", "disabled", "removed");
-    }
-    deck.classList.remove("disabled");
-    // resets timer
-    sec = 0;
-    min = 0;
-    timer.innerHTML = "0 min, 0 sec";
-    clearInterval(interval);
-    startTimer();
-    button.innerHTML = "RESET";
+  openedCards = [];
+  let shuffledDeck = [];
+  let shuffledCards = shuffle(cards);
+  for (let i = 0; i < shuffledCards.length; i++) {
+    shuffledDeck.forEach.call(shuffledCards, function(item) {
+      deck.appendChild(item);
+    });
+    cards[i].classList.remove("show", "open", "match", "disabled");
+  }
+  deck.classList.remove("disabled");
+  // resets timer
+  sec = 0;
+  min = 0;
+  timer.innerHTML = "0 min, 0 sec";
+  clearInterval(interval);
+  startTimer();
+  button.innerHTML = "RESET";
 }
 
 // to shuffle the cards
@@ -137,16 +133,19 @@ function startTimer() {
     }
   }, 1000);
 }
+
 function endGame() {
   if (matchedCards.length === 14) {
-    console.log(`You finished the game in ${min} mins, ${sec} secs`);
     clearInterval(interval);
     button.innerHTML = `PLAY AGAIN!`;
+    modal.style.display = "block";
+    deck.classList.add("disabled");
+    document.querySelector(".close").addEventListner;
+    document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
+    <p>You finished the game in</p
+    ><p> ${min} minutes, ${sec} seconds!</p>`;
   }
 }
-
-function disabled() {
-    Array.prototype.filter.call(cards, function(card) {
-        card.classList.add('disabled');
-    })
+function handleClose() {
+  modal.style.display = "none";
 }
