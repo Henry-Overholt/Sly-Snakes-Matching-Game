@@ -75,7 +75,9 @@ function cardOpen() {
     let length = openedCards.length;
     if (length === 2) {
         if (openedCards[0].attributes[1].value === openedCards[1].attributes[1].value) {
-            matched();
+            setTimeout(function() {
+                matched();
+            }, 1000);
         } else {
             unmatched();
         }
