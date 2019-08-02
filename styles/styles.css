@@ -4,36 +4,27 @@
   box-sizing: border-box;
 }
 
-body {
-  background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
-  url("../blacksnake.jpeg");
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 main {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
+    url("../blacksnake.jpeg");
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  /* justify-content: center; */
+}
+
+h1,
+div {
   color: white;
-}
-
-h1 {
-  margin-top: 20px
   font-family: "Lacquer", sans-serif;
-}
-
-.timer {
-  padding: 10px;
+  font-size: 20px;
 }
 
 button {
@@ -50,7 +41,8 @@ button:hover {
   color: white;
 }
 
-#start_btn {
+#start_btn,
+#reset_btn {
   height: 40px;
   padding: 10px 30px;
   margin: 5px;
@@ -67,14 +59,13 @@ button:hover {
   border-radius: 5px;
   background-color: #716f71;
   max-width: 80%;
-  padding: 0.6rem;
-  margin-top: 20px;
+  padding: 6px;
 }
 
 .card {
   position: relative;
-  height: 4.5rem;
-  width: 4.5rem;
+  height: 4.2rem;
+  width: 4.2rem;
   background: black;
   display: flex;
   flex-wrap: wrap;
@@ -86,13 +77,14 @@ button:hover {
 .front,
 .back {
   position: absolute;
-  height: 4.5rem;
-  width: 4.5rem;
+  height: 4.2rem;
+  width: 4.2rem;
   backface-visibility: hidden;
 }
 
 .front {
-  /* border: 1px black solid; */
+  width: 4.2rem;
+  border: 1px black solid;
   border-radius: 3px;
 }
 
@@ -164,9 +156,9 @@ button:hover {
 }
 
 .matched {
-  box-shadow: 0px 0px 25px 4px rgb(212,175,55);
+  box-shadow: 0px 0px 10px 2px rgb(148, 125, 67);
   transform: rotate(1turn);
-  transition: 0.3s linear;
+  transition: 0.4s linear;
 }
 
 .removed {
@@ -177,40 +169,41 @@ button:hover {
   background: rgba(0, 0, 0, 0.9);
   pointer-events: none;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 25%;
+  width: 75%;
+  height: 25%;
+  transform: translate(-50% -50%);
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.results {
+  text-align: center;
+  margin: 5% auto;
+  font-size: 30px;
+  width: 75%;
+  height: 50%;
+}
 
-@media only screen and (min-width: 580px) {
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
 
-  .card {
-    height: 5.5rem;
-    width: 5.5rem;  
-  }
-  
-  .front,
-  .back {
-    height: 5.5rem;
-    width: 5.5rem;
-  }
-
-
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
-
-  .game_board {
-    width: 610px;
-    max-width: none;
-  }
-
-  .card {
-    height: 6.5rem;
-    width: 6.5rem;  
-  }
-  
-  .front,
-  .back {
-    height: 6.5rem;
-    width: 6.5rem;
-  }
 }
-
-
