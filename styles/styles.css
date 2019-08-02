@@ -69,7 +69,7 @@ div {
     transform-style:preserve-3d;
     transition: transform 2s;
     box-sizing: border-box;
-    
+    cursor: pointer;    
 
 }
 

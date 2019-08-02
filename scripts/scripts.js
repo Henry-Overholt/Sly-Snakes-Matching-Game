@@ -1,6 +1,6 @@
 function flip(event){
 	let element = event.currentTarget;
-	if (element.classList.contains("card")) {
+	if (element.className === "card") {
     if(element.style.transform == "rotateY(180deg)") {
       element.style.transform = "rotateY(0deg)";
     }
@@ -9,10 +9,6 @@ function flip(event){
     }
   }
 };
-
-let card = document.querySelectorAll(".card");
-const cards = [...card];
-// console.log(cards);
 
 
 // all cards in the game
