@@ -1,3 +1,14 @@
+function flip(event) {
+  let element = event.currentTarget;
+  if (element.classList.contains("card")) {
+    if (element.style.transform == "rotateY(180deg)") {
+      element.style.transform = "rotateY(0deg)";
+    } else {
+      element.style.transform = "rotateY(180deg)";
+    }
+  }
+}
+
 let card = document.querySelectorAll(".card");
 const cards = [...card];
 // console.log(cards);
@@ -30,8 +41,9 @@ console.log(cards);
 // eeeet works!
 
 // need to start the game on window load ***
-
+document.querySelector("#start_btn").addEventListener("click", startGame); //click event on the start button with function of start game
 function startGame() {
+  startTimer();
   /** we need to:
    * - shuffle the cards (so call shuffle function)
    * - reset the timer
@@ -52,8 +64,13 @@ function startTimer() {
     sec++;
     if (sec === 60) {
       min++;
+      sec = 0;
     }
   }, 1000);
+}
+document.querySelector("#reset_btn").addEventListener("click", resetGame); //click event on reset button
+function resetGame() {
+  console.log("reset button was pushed");
 }
 
 // startTimer();
