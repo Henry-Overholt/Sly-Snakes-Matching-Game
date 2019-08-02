@@ -28,7 +28,8 @@ header {
 }
 
 h1 {
-  margin-top: 20px;
+  margin-top: 20px
+  font-family: "Lacquer", sans-serif;
 }
 
 .timer {
@@ -41,7 +42,7 @@ button {
   margin: 5px;
   border: none;
   border-radius: 5px;
-  font-size: 20px
+  font-size: 20px;
 }
 
 button:hover {
@@ -64,7 +65,7 @@ button:hover {
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
-  background-color: #716F71;
+  background-color: #716f71;
   max-width: 80%;
   padding: 0.6rem;
   margin-top: 20px;
@@ -80,7 +81,6 @@ button:hover {
   justify-content: space-between;
   margin: 0.6rem;
   border-radius: 3px;
-
 }
 
 .front,
