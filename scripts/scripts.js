@@ -31,7 +31,7 @@ function startGame() {
     shuffledDeck.forEach.call(shuffledCards, function(item) {
       deck.appendChild(item);
     });
-    cards[i].classList.remove("show", "open", "match", "disabled");
+    cards[i].classList.remove("show", "open", "matched", "disabled", "removed");
   }
   deck.classList.remove("disabled");
   // resets timer
@@ -68,13 +68,15 @@ function displayCard() {
 
 function cardOpen() {
   openedCards.push(this);
-  // console.log(openedCards);
+  console.log(openedCards);
   let length = openedCards.length;
   if (length === 2) {
     if (
       openedCards[0].attributes[1].value === openedCards[1].attributes[1].value
     ) {
-      matched();
+      setTimeout(function() {
+        matched();
+      }, 1000);
     } else {
       unmatched();
     }
@@ -87,10 +89,12 @@ function matched() {
   openedCards[1].classList.add("matched", "disabled");
   openedCards[0].classList.remove("show", "open");
   openedCards[1].classList.remove("show", "open");
+  disabled();
   setTimeout(function() {
     matchedCards.push(openedCards[0], openedCards[1]);
     openedCards[0].classList.add("removed");
     openedCards[1].classList.add("removed");
+    enable();
     openedCards = [];
   }, 1500);
   endGame();
@@ -99,6 +103,7 @@ function matched() {
 function unmatched() {
   openedCards[0].classList.add("unmatched", "disabled");
   openedCards[1].classList.add("unmatched", "disabled");
+  disabled();
   setTimeout(function() {
     openedCards[0].classList.remove(
       "show",
@@ -114,6 +119,7 @@ function unmatched() {
       "unmatched",
       "disabled"
     );
+    enable();
     openedCards = [];
   }, 1500);
 }
@@ -125,13 +131,25 @@ let interval;
 
 function startTimer() {
   interval = setInterval(function() {
-    timer.innerHTML = `${min} mins, ${sec} secs`;
+    timer.innerHTML = `${min} min, ${sec} sec`;
     sec++;
     if (sec === 60) {
       min++;
       sec = 0;
     }
   }, 1000);
+}
+
+function disabled() {
+  Array.prototype.filter.call(cards, function(card) {
+    card.classList.add("disabled");
+  });
+}
+
+function enable() {
+  Array.prototype.filter.call(cards, function(card) {
+    card.classList.remove("disabled");
+  });
 }
 
 function endGame() {
@@ -142,10 +160,11 @@ function endGame() {
     deck.classList.add("disabled");
     document.querySelector(".close").addEventListner;
     document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
-    <p>You finished the game in</p>
-    <p> ${min} minutes, ${sec} seconds!</p>`;
+      <p>You finished the game in</p
+      ><p> ${min} minutes and ${sec} seconds!</p>`;
   }
 }
+
 function handleClose() {
   modal.style.display = "none";
 }

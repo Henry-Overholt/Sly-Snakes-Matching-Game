@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  background: linear-gradient(rgba(32, 32, 33, 0.9), rgba(32, 32, 33, 0.9)),
+    url("../blacksnake.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 main {
   height: 100vh;
   display: flex;
@@ -17,28 +24,33 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
   /* justify-content: center; */
 }
 
-h1,
-div {
-  color: white;
-  font-family: "Lacquer", sans-serif;
-  font-size: 20px;
+h1 {
+  margin-top: 20px;
+}
+
+.timer {
+  padding: 10px;
+  height: 40px;
 }
 
 button {
   height: 40px;
   padding: 10px 30px;
-  margin: 5px;
+  margin: 5px 0 10px 0;
   border: none;
   border-radius: 5px;
   font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.76);
 }
 
 button:hover {
-  background: black;
-  color: white;
+  background: #0c641f7a;
+  color: rgb(185, 178, 178);
+  box-shadow: 0px 0px 15px 8px rgba(255, 255, 255, 0.3);
 }
 
 #start_btn,
@@ -57,9 +69,10 @@ button:hover {
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
-  background-color: #716f71;
+  background-color: rgba(113, 111, 113, 0.425);
   max-width: 80%;
-  padding: 6px;
+  padding: 1.2rem;
+  margin-top: 20px;
 }
 
 .card {
@@ -83,14 +96,12 @@ button:hover {
 }
 
 .front {
-  width: 4.2rem;
-  border: 1px black solid;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 .back {
   transform: rotateY(180deg);
-  border-radius: 3px;
+  border-radius: 5px;
   width: 100%;
 }
 
@@ -99,10 +110,10 @@ button:hover {
   cursor: pointer;
 }
 
-.card.show:hover {
+.card.show {
   transform: rotateY(180deg);
   transform-style: preserve-3d;
-  transition: 0.7s ease;
+  transition: 0.6s ease-out;
   box-shadow: 0px 0px 10px 2px black;
 }
 
@@ -116,49 +127,48 @@ button:hover {
 
 .red.open,
 .red.matched {
-  background-color: red;
-  color: white;
+  background-color: #550322;
 }
 
 .orange.open,
 .orange.matched {
-  background-color: orange;
+  background-color: #c15018;
 }
 
 .yellow.open,
 .yellow.matched {
-  background-color: yellow;
+  background-color: #edb601;
 }
 
 .green.open,
 .green.matched {
-  background-color: green;
+  background-color: #395445;
 }
 
 .blue.open,
 .blue.matched {
-  background-color: blue;
+  background-color: #00546e;
 }
 
 .purple.open,
 .purple.matched {
-  background-color: purple;
+  background-color: #513871;
 }
 
 .pink.open,
 .pink.matched {
-  background-color: pink;
+  background-color: #b3346c;
 }
 
 .hotpink.open,
 .hotpink.matched {
-  background-color: hotpink;
+  background-color: rgb(73, 7, 56);
 }
 
 .matched {
-  box-shadow: 0px 0px 10px 2px rgb(148, 125, 67);
+  box-shadow: 0px 0px 25px 20px rgb(212, 175, 55);
   transform: rotate(1turn);
-  transition: 0.4s linear;
+  transition: 0.6s ease-in;
 }
 
 .removed {
@@ -166,9 +176,38 @@ button:hover {
 }
 
 .deck.disabled {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(27, 27, 27, 0.938);
   pointer-events: none;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 25%;
+  width: 75%;
+  height: 50%;
+  transform: translate(-50% -50%);
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.results {
+  text-align: center;
+  margin: auto;
+  font-size: 25px;
+  width: 75%;
+  height: 100%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -180,7 +219,9 @@ button:hover {
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+  color: white;
 }
+
 .results {
   text-align: center;
   margin: 5% auto;
@@ -190,7 +231,7 @@ button:hover {
 }
 
 .close {
-  color: #aaa;
+  color: white;
   float: right;
   font-size: 15px;
   margin-right: 10px;
@@ -205,5 +246,33 @@ button:hover {
   cursor: pointer;
 }
 
+@media only screen and (min-width: 610px) {
+  .card {
+    height: 6.1em;
+    width: 6.1rem;
+  }
+
+  .front,
+  .back {
+    height: 6.1rem;
+    width: 6.1rem;
+  }
+}
+
 @media only screen and (min-width: 768px) {
+  .game_board {
+    width: 610px;
+    max-width: none;
+  }
+
+  .card {
+    height: 6.5rem;
+    width: 6.5rem;
+  }
+
+  .front,
+  .back {
+    height: 6.5rem;
+    width: 6.5rem;
+  }
 }
