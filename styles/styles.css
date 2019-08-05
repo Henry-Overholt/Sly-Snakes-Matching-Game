@@ -25,42 +25,38 @@ header {
   flex-direction: column;
   align-items: center;
   color: white;
-  /* justify-content: center; */
+  margin-top: 20px;
+  font-family: "Grenze", serif;
 }
 
 h1 {
+  font-size: 48px;
   margin-top: 20px;
+  font-weight: 300;
 }
 
 .timer {
   padding: 10px;
+  margin: 10px;
   height: 40px;
+  font-size: 28px;
 }
 
 button {
-  height: 40px;
-  padding: 10px 30px;
-  margin: 5px 0 10px 0;
+  padding: 5px 35px;
+  margin: 10px;
   border: none;
   border-radius: 5px;
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.76);
+  font-family: "Grenze", serif;
+  font-weight: 700;
 }
 
 button:hover {
   background: #0c641f7a;
   color: rgb(185, 178, 178);
   box-shadow: 0px 0px 15px 8px rgba(255, 255, 255, 0.3);
-}
-
-#start_btn,
-#reset_btn {
-  height: 40px;
-  padding: 10px 30px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
 }
 
 .game_board {
@@ -97,6 +93,11 @@ button:hover {
 
 .front {
   border-radius: 5px;
+  background-image: url("../snakewhite.png");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
 }
 
 .back {
@@ -180,16 +181,18 @@ button:hover {
   pointer-events: none;
 }
 .modal {
+  font-family: "Grenze", serif;
+  color: white;
   display: none;
   position: fixed;
   z-index: 1;
-  top: 25%;
+  top: 22%;
   width: 75%;
-  height: 50%;
+  height: 40%;
   transform: translate(-50% -50%);
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .results {
   text-align: center;
@@ -257,9 +260,17 @@ button:hover {
     height: 6.1rem;
     width: 6.1rem;
   }
+
+  .front {
+    background-size: 60px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+
   .game_board {
     width: 610px;
     max-width: none;

@@ -21,7 +21,11 @@ for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener("click", displayCard);
   cards[i].addEventListener("click", cardOpen);
 }
+
+deck.classList.add("disabled");
+
 button.addEventListener("click", startGame);
+
 // to start the game
 function startGame() {
   openedCards = [];
@@ -68,7 +72,6 @@ function displayCard() {
 
 function cardOpen() {
   openedCards.push(this);
-  console.log(openedCards);
   let length = openedCards.length;
   if (length === 2) {
     if (
@@ -98,6 +101,7 @@ function matched() {
     openedCards = [];
   }, 1500);
   endGame();
+  console.log(matchedCards);
 }
 
 function unmatched() {
@@ -158,7 +162,6 @@ function endGame() {
     button.innerHTML = `PLAY AGAIN!`;
     modal.style.display = "block";
     deck.classList.add("disabled");
-    document.querySelector(".close").addEventListner;
     document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
       <p>You finished the game in</p
       ><p> ${min} minutes and ${sec} seconds!</p>`;
