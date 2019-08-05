@@ -113,6 +113,7 @@ function matched() {
     enable();
   }, 1500);
   endGame();
+  console.log(matchedCards);
 }
 
 function unmatched() {
@@ -173,7 +174,6 @@ function endGame() {
     button.innerHTML = `PLAY AGAIN!`;
     modal.style.display = "block";
     deck.classList.add("disabled");
-    document.querySelector(".close").addEventListner;
     document.querySelector(".results").innerHTML = `<p>CONGRATS!</p>
       <p>You finished the game in</p
       ><p> ${min} minutes and ${sec} seconds!</p>`;
