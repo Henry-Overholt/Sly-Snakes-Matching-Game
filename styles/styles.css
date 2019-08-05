@@ -132,7 +132,7 @@ button:hover {
 
 .red.open,
 .red.matched {
-  background-color: #550322;
+  background-color: #530619;
 }
 
 .orange.open,
@@ -162,18 +162,18 @@ button:hover {
 
 .pink.open,
 .pink.matched {
-  background-color: #B3346C;
+  background-color: rgb(180, 43, 72);
 }
 
-.hotpink.open,
-.hotpink.matched {
-  background-color: rgb(73, 7, 56);
+.navy.open,
+.navy.matched {
+  background-color: rgb(9, 20, 117);
 }
 
 .matched {
   box-shadow: 0px 0px 25px 20px rgb(212, 175, 55);
-  transform: rotate(1turn);
-  transition: 0.6s ease-in;
+  /* transform: rotate(1turn); */
+  transition: 1s ease;
 
 }
 
