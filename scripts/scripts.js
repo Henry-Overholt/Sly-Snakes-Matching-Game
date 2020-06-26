@@ -85,9 +85,9 @@ function cardOpen() {
   // pushes the opened cards into their own array
   openedCards.push(this);
   let length = openedCards.length;
-  // once the opened cards
+  // once the two open cards are pushed to the array, they are checked for a match
   if (length === 2) {
-    disabled();
+    disabled(); // disables rest of cards so you cannot open them
     if (
       openedCards[0].attributes[1].value === openedCards[1].attributes[1].value
     ) {
@@ -102,18 +102,18 @@ function cardOpen() {
 function matched() {
   openedCards[0].classList.add("matched", "disabled");
   openedCards[1].classList.add("matched", "disabled");
-  disabled();
+  disabled(); // keeps rest of cards disabled still.
   setTimeout(function() {
+    // the two opened and matched cards are pushed into the matched cards array
     matchedCards.push(openedCards[0], openedCards[1]);
     openedCards[0].classList.remove("show", "open");
     openedCards[1].classList.remove("show", "open");
     openedCards[0].classList.add("removed");
     openedCards[1].classList.add("removed");
     openedCards = [];
-    enable();
+    enable(); // reenables cards for further gameplay
+    endGame();
   }, 1500);
-  endGame();
-  console.log(matchedCards);
 }
 
 function unmatched() {
@@ -121,6 +121,7 @@ function unmatched() {
   openedCards[1].classList.add("unmatched", "disabled");
   disabled();
   setTimeout(function() {
+    // this causes the cards to return them to their face down position
     openedCards[0].classList.remove(
       "show",
       "open",
@@ -136,6 +137,7 @@ function unmatched() {
       "disabled"
     );
     enable();
+    // empties the open cards array so it can accept two new cards
     openedCards = [];
   }, 1500);
 }
@@ -148,20 +150,23 @@ let interval;
 function startTimer() {
   interval = setInterval(function() {
     timer.innerHTML = `${min} min, ${sec} sec`;
-    sec++;
+    sec++; // increases by one second
     if (sec === 60) {
+      // adds a minute when seconds reach 60
       min++;
       sec = 0;
     }
   }, 1000);
 }
 
+// this is what disables the cards from being clicked when two are opened.
 function disabled() {
   Array.prototype.filter.call(cards, function(card) {
     card.classList.add("disabled");
   });
 }
 
+// obviously now reenables the disabled cards.
 function enable() {
   Array.prototype.filter.call(cards, function(card) {
     card.classList.remove("disabled");
@@ -169,7 +174,8 @@ function enable() {
 }
 
 function endGame() {
-  if (matchedCards.length === 14) {
+  // makes sure there are
+  if (matchedCards.length === 16) {
     clearInterval(interval);
     button.innerHTML = `PLAY AGAIN!`;
     modal.style.display = "block";
